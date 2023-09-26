@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import './config/css/reset.css';
+@import './config/css/variables.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&family=Teko:wght@300;600;700&display=swap');
+@import './config/css/animations.css';
+
+html {
+    background: var(--primary-color);
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding: 0.7rem;
+    max-width: 37.5rem;
+
+}

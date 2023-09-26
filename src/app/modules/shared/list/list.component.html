@@ -1,0 +1,30 @@
+<section>
+    <app-search (emmitSearch)="filterPokemons($event)"></app-search>
+</section>
+
+<section class="container-cards">
+    <ng-template ngFor let-pokemon [ngForOf]="listFilterPokemons">
+        <a [routerLink]="['details', pokemon.status.id]" class="card" *ngIf="pokemon.status">
+            <section class="pokemon-status fadeInLeft">
+                <h2 class="name">{{pokemon.name}}</h2>
+
+                <ul class="status">
+                    <li *ngFor="let status of pokemon.status.types">
+                        {{status.type.name}}
+                    </li>
+                </ul>
+            </section>
+
+            <section class="pokemon-image">
+                <div class="background fadeIn">
+                    <img class="img" [src]="pokemon.status.sprites.other.dream_world.front_default"
+                        [alt]="pokemon.name">
+                </div>
+            </section>
+        </a>
+    </ng-template>
+
+    <div class="erro" *ngIf="apiError">
+        <img src="assets/icons/erro.svg" alt="Erro na API">
+    </div>
+</section>

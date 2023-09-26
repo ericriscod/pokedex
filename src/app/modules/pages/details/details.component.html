@@ -1,0 +1,41 @@
+<header>
+    <app-header></app-header>
+</header>
+
+<ng-template [ngIf]="!isLoading">
+    <main>
+
+
+        <section class="pokemon-name">
+            <h1 class="fadeInLeft">{{pokemon[0].name}}</h1>
+            <h2 class="fadeIn">{{pokemon[1].names[0].name}}</h2>
+        </section>
+
+        <section class="pokemon-status">
+            <img class="slideInDown" [src]="pokemon[0].sprites.other.dream_world.front_default" [alt]="pokemon[0].name">
+        </section>
+
+        <article class="pokemon-statistics">
+            <section>
+                <h3>Estastísticas</h3>
+
+                <ol>
+                    <li *ngFor="let value of pokemon[0].stats">{{value.stat.name}}<strong>{{value.base_stat}}</strong>
+                    </li>
+
+                </ol>
+            </section>
+
+            <div class="fadeIn"> <a class="" [routerLink]="['']" class="btn btn-secondary">Voltar</a></div>
+
+        </article>
+
+
+
+
+    </main>
+</ng-template>
+
+<div class="erro" *ngIf="apiError">
+    <img src="assets/icons/erro.svg" alt="Erro na API">
+</div>
